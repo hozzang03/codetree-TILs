@@ -13,7 +13,11 @@ int main() {
 
     for(int i = 0; i < 5; i ++){
         for(int j = 0; j < 3; j ++) {
-            cout << static_cast<char>(arr[i][j] - ('a' - 'A'))<< ' ';
+            
+            arr[i][j] += 'A' - 'a';
+            cout << arr[i][j]<<' ';
+            
+            //cout << static_cast<char>(arr[i][j] - ('a' - 'A'))<< ' ';
         }
         cout << '\n';
     }
