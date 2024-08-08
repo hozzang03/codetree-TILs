@@ -1,56 +1,73 @@
 #include <iostream>
-#include <string>
 #include <algorithm>
+#include <string>
+
+#define MAXN 5
 
 using namespace std;
 
-// 학생 정보를 담는 구조체
-struct Student {
-    string name;
-    int height;
-    float weight;
+// 학생들의 정보를 나타내는 클래스 선언
+class Student{
+    public:
+        string name;
+        int height;
+        double weight;
+        Student(string name, int height, double weight) {
+            this->name = name;
+            this->height = height;
+            this->weight = weight;
+        }
+		Student(){}
 };
 
-// 이름순으로 정렬하기 위한 비교 함수
-bool compareByName(const Student& a, const Student& b) {
+// Custom Comparator
+bool Cmp1(Student a, Student b) {
+    // 이름을 기준으로 오름차순으로 정렬합니다.
     return a.name < b.name;
 }
 
-// 키순으로 정렬하기 위한 비교 함수
-bool compareByHeight(const Student& a, const Student& b) {
-    return a.height > b.height; // 키가 큰 순서
+bool Cmp2(Student a, Student b) {
+    // 키를 기준으로 내림차순으로 정렬합니다.
+    return a.height > b.height;
 }
 
-// 메인 함수
-int main() {
-    Student students[5];
-    
-    // 입력 받기
-    for(int i = 0; i < 5; i++) {
-        cin >> students[i].name >> students[i].height >> students[i].weight;
-    }
+Student students[MAXN];
 
-    // 이름순으로 정렬
-    sort(students, students + 5, compareByName);
-    
-    cout << "name" << endl;
-    for(int i = 0; i < 5; i++) {
-        // 몸무게를 소수점 이하 한 자리까지 출력
-        int weightInt = static_cast<int>(students[i].weight * 10 + 0.5);
-        float weightRounded = weightInt / 10.0;
-        cout << students[i].name << " " << students[i].height << " " << weightRounded << endl;
+int main(){
+    for (int i = 0; i < MAXN; i++){
+        string name;
+        int height;
+		double weight;
+        cin >> name >> height >> weight;
+        // Student 객체를 생성해 리스트에 추가합니다.
+		students[i] = Student(name, height, weight);
     }
-    cout << '\n';
+	
+	cout << fixed;
+	cout.precision(1);
 
-    // 키순으로 정렬
-    sort(students, students + 5, compareByHeight);
-    
-    cout << "height" << endl;
-    for(int i = 0; i < 5; i++) {
-        // 몸무게를 소수점 이하 한 자리까지 출력
-        int weightInt = static_cast<int>(students[i].weight * 10 + 0.5);
-        float weightRounded = weightInt / 10.0;
-        cout << students[i].name << " " << students[i].height << " " << weightRounded << endl;
+    // custom comparator를 활용한 정렬 (이름순으로 정렬)
+    sort(students, students + MAXN, Cmp1);
+
+    // 이름순으로 정렬한 결과를 출력합니다.
+	cout << "name" << endl;
+    for (int i = 0; i < MAXN; i++){
+        cout << students[i].name << " ";
+        cout << students[i].height << " ";
+        cout << students[i].weight << endl;
+    }
+	
+	cout << endl;
+	
+	// custom comparator를 활용한 정렬 (키순으로 정렬)
+    sort(students, students + MAXN, Cmp2);
+
+    // 키순으로 정렬한 결과를 출력합니다.
+	cout << "height" << endl;
+    for (int i = 0; i < MAXN; i++){
+        cout << students[i].name << " ";
+        cout << students[i].height << " ";
+        cout << students[i].weight << endl;
     }
 
     return 0;
