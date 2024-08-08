@@ -11,12 +11,12 @@ int main() {
     cin >> n >> k;
 
     for(int i = 0; i < n; i++) {
-        cin >> arr[n];
+        cin >> arr[i];
     }
 
     sort(arr, arr + n);
 
-    cout << arr[n];
+    cout << arr[k-1];
 
     return 0;
 }
