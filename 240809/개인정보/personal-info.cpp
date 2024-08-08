@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <algorithm> // sort 함수 사용을 위한 헤더 파일
+#include <algorithm>
 
 using namespace std;
 
@@ -35,17 +35,22 @@ int main() {
     
     cout << "name" << endl;
     for(int i = 0; i < 5; i++) {
-        cout << students[i].name << " " << students[i].height << " " 
-             << (int(students[i].weight * 10 + 0.5) / 10.0) << endl;
+        // 몸무게를 소수점 이하 한 자리까지 출력
+        int weightInt = static_cast<int>(students[i].weight * 10 + 0.5);
+        float weightRounded = weightInt / 10.0;
+        cout << students[i].name << " " << students[i].height << " " << weightRounded << endl;
     }
     cout << '\n';
+
     // 키순으로 정렬
     sort(students, students + 5, compareByHeight);
     
     cout << "height" << endl;
     for(int i = 0; i < 5; i++) {
-        cout << students[i].name << " " << students[i].height << " " 
-             << (int(students[i].weight * 10 + 0.5) / 10.0) << endl;
+        // 몸무게를 소수점 이하 한 자리까지 출력
+        int weightInt = static_cast<int>(students[i].weight * 10 + 0.5);
+        float weightRounded = weightInt / 10.0;
+        cout << students[i].name << " " << students[i].height << " " << weightRounded << endl;
     }
 
     return 0;
