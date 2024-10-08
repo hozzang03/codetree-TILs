@@ -8,7 +8,7 @@ int days_in_month(int month) {
 
 string get_weekday(int total_days) {
     string weekdays[] = { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
-    return weekdays[total_days % 7];
+    return weekdays[(total_days % 7 + 7) % 7];  // 음수를 처리
 }
 
 int main() {
@@ -20,11 +20,11 @@ int main() {
     if (m1 == m2) {
         total_days = d2 - d1;
     } else {
-        total_days += days_in_month(m1) - d1;
+        total_days += days_in_month(m1) - d1; 
         for (int i = m1 + 1; i < m2; i++) {
-            total_days += days_in_month(i);
+            total_days += days_in_month(i);  
         }
-        total_days += d2;
+        total_days += d2;  
     }
 
     cout << get_weekday(total_days) << endl;
