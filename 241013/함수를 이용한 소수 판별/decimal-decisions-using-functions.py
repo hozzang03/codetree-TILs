@@ -10,8 +10,9 @@ def prime(n) :
     return True
 
 for i in range(a, b+1) :
-    if prime(i) == True :
-        sm += i
+    if i != 1 :
+        if prime(i) == True :
+            sm += i
     
 
 print(sm)
