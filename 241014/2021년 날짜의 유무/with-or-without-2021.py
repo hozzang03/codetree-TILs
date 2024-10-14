@@ -5,7 +5,7 @@ def month(m, d) :
     if 1 <= m <= 12 :
         ans = True
 
-    if 1 <= d <= 31 :
+    if 1 <= d <= 31 and ans == True:
         ans = True
         if d >= 28 :
             if m == 2 :
