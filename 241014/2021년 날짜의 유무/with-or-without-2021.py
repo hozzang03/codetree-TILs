@@ -1,21 +1,19 @@
 M, D = tuple(map(int, input().split()))
 
 def month(m, d) :
-    ans = False
     if 1 <= m <= 12 :
-        ans = True
-
-    if 1 <= d <= 31 and ans == True:
-        ans = True
-        if d >= 28 :
-            if m == 2 :
-                ans = False
+        if m % 2 == 0 and m != 2 :
+            if 1 <= d <= 30 :
+                return True
+        elif m%2 == 1 :
+            if 1 <= d <= 31 :
+                return True
+        elif m == 2 :
+            if 1 <= d <= 28 :
+                return True
     
-    if ans == True :
-        return True
-    else :
-        return False
-
+    return False
+    
 if month(M, D) :
     print("Yes")
 else :
