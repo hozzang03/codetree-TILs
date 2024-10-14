@@ -3,7 +3,7 @@ A = list(map(int, input().split()))
 B = list(map(int, input().split()))
 
 def check(ar, ar2) :
-    ans = True
+    ans = False
     for i in range(len(ar)) :
         if ar[i] == ar2[0] :
             for i2 in range(len(ar2)) :
