@@ -5,8 +5,8 @@ def plus(M) :
     sum = 0
 
     while 1:
+        sum += ar[M-1]
         if M <= 1 :
-            sum += ar[1]
             return sum
 
         if M % 2 == 1 : 
@@ -14,7 +14,6 @@ def plus(M) :
 
         else :
             M = M // 2
-        sum += ar[M]
 
 ans = plus(m)
 print(ans)
