@@ -7,5 +7,6 @@ def check_idx() :
         return 0
     else :
         print(A.index(B))
+        return 0
 
 check_idx()
