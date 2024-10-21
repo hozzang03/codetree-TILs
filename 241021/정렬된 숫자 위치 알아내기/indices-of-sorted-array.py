@@ -10,6 +10,7 @@ for elem in ar :
     ans = ar2.index(elem)+1
     if ans not in ar3 :
         ar3.append(ans)
+        cnt = 1
     else :
         ar3.append(ans+cnt)
         cnt += 1
