@@ -7,6 +7,7 @@ while True :
     # 날짜가 11일 11시 11분 아래일때
     if date < "111111" :
         print("-1")
+        ans = -1
         break
 
     if a == d and b == h and c == m :
@@ -23,4 +24,5 @@ while True :
         a += 1
         b = 0
 
-print(ans)
+if ans != -1 :
+    print(ans)
