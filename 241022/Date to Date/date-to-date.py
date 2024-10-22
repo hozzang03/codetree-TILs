@@ -14,4 +14,7 @@ while True :
         m1 += 1
         d1 = 0
     
-print(ans)
+if ans != 0 :
+    print(ans)
+else :
+    print("1")
