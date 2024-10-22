@@ -13,6 +13,6 @@ def total_day(m, d) :
 
     return cnt
 
-ans = total_day(m1, d1) - total_day(m1, d2)
+ans = abs(total_day(m1, d1) - total_day(m2, d2))
 
-print(week[abs(ans%7)])
+print(week[ans%7])
