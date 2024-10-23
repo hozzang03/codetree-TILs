@@ -1,34 +1,14 @@
 n = int(input())
+off = 100
 ar2 = [
     tuple(map(int, input().split()))
     for i in range(n)
 ]
-mx = 0
-mn = 100
-plus = 0
-cnt = 0
-# 튜플에 최댓값과 최솟값 구하기
-for tu in ar2 :
-    for elem in tu :
-        if elem > mx :
-            mx = elem
-        if elem < mn :
-            mn = elem
+ar = [0] * 200
 
-# offset 작업
-if mn < 0 :
-    plus = abs(mn)
+for x1, x2 in ar2 :
+    x1, x2 = x1+off, x2 + off
 
-ar2 = [(x+plus, y+plus) for x, y in ar2]
-
-#최대로 나올 수 있는 값의 배열 생성
-ar = [0] * (mx+1+plus)
-
-for x, y in ar2 :
-    for i in range(x, y) :
-        # print(i, end = ' ')
+    for i in range(x1, x2) :
         ar[i] += 1
-    # print()
-    # print(ar)
-
 print(max(ar))
