@@ -25,7 +25,7 @@ ar2 = [(x+plus, y+plus) for x, y in ar2]
 ar = [0] * (mx+1+plus)
 
 for x, y in ar2 :
-    for i in range(x, y+1) :
+    for i in range(x, y) :
         # print(i, end = ' ')
         ar[i] += 1
     # print()
