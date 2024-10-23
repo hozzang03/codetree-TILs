@@ -14,13 +14,15 @@ for tu in ar2 :
             mx = elem
         if elem < mn :
             mn = elem
-#최대로 나올 수 있는 값의 배열 생성
-ar = [0] * (mx+1)
+
 # offset 작업
 if mn < 0 :
     plus = abs(mn)
 
 ar2 = [(x+plus, y+plus) for x, y in ar2]
+
+#최대로 나올 수 있는 값의 배열 생성
+ar = [0] * (mx+1+plus)
 
 for x, y in ar2 :
     for i in range(x, y+1) :
@@ -29,7 +31,4 @@ for x, y in ar2 :
     # print()
     # print(ar)
 
-for elem in ar :
-    if elem > 1:
-        cnt += 1
-print(cnt)
+print(max(ar))
