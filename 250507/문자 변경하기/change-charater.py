@@ -1,3 +1,3 @@
-var a = C;
-a = T;
+var a = 'C';
+a = 'T';
 console.log("a");
